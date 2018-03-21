@@ -2,6 +2,9 @@ const express = require('express');
 const hbs = require('hbs');
 const fs = require('fs');
 
+//Dynamic port for HEROKU to fill it.
+const port = process.env.PORT || 3000;
+
 var app = express();
 
 //Support for partials
@@ -65,8 +68,8 @@ app.get('/bad', (req, res) => {
     res.send({
         errorMessage: 'Unable to fulfill this request'
     });
-})
+});
 
-app.listen(3000, () => {
-    console.log('Server up in port: 3000');
+app.listen(port, () => {
+    console.log('Server up in port: ' + port);
 });
