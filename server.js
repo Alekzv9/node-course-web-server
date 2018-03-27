@@ -31,7 +31,7 @@ app.use((req, res, next) => {
         if (err) {
             console.log(err);
         }
-    });    
+    });
     //Tells express to continue
     next();
 });
@@ -67,6 +67,12 @@ app.get('/about', (req, res) => {
 app.get('/bad', (req, res) => {
     res.send({
         errorMessage: 'Unable to fulfill this request'
+    });
+});
+
+app.get('/projects', (req, res) => {
+    res.render('projects.hbs', {
+        pageTitle: 'Projects'
     });
 });
 
